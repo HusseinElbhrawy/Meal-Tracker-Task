@@ -2,6 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:meal_tracker/features/home/data/datasources/home_local_data_source.dart';
 import 'package:meal_tracker/features/home/data/repositories/home_repository.dart';
 import 'package:meal_tracker/features/home/logic/add_new_meal/add_new_meal_cubit.dart';
+import 'package:meal_tracker/features/home/logic/edit_meal/edit_meal_cubit.dart';
 import 'package:meal_tracker/features/home/logic/home/home_cubit.dart';
 import 'package:meal_tracker/features/onboarding/logic/on_barding_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,6 +31,11 @@ Future<void> _setUpBloc() async {
   if (!serviceLocator.isRegistered<AddNewMealCubit>()) {
     serviceLocator.registerFactory<AddNewMealCubit>(
       () => AddNewMealCubit(serviceLocator()),
+    );
+  }
+  if (!serviceLocator.isRegistered<EditMealCubit>()) {
+    serviceLocator.registerFactory<EditMealCubit>(
+      () => EditMealCubit(serviceLocator()),
     );
   }
   if (!serviceLocator.isRegistered<HomeCubit>()) {

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:meal_tracker/config/routes/app_routes.dart';
 import 'package:meal_tracker/core/utils/media_query_values.dart';
 import 'package:meal_tracker/core/utils/style_manager.dart';
 import 'package:meal_tracker/features/home/data/models/meal_model.dart';
@@ -21,6 +22,7 @@ class MealItemWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         log('Item Tapped ${item.id}');
+        context.navigateTo(Routes.editMealRoute, arguments: item);
       },
       child: Container(
         // padding: EdgeInsets.all(10.sp),
