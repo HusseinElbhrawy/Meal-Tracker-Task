@@ -14,6 +14,9 @@ class AppConstant {
 
   static const int defaultPaddingValue = 16;
 
+  static const mealBox = 'meal_box';
+  static const mealDatabase = 'meal_db';
+
   static List<OnBoardingModel> onBoardingItems(
           BuildContext context, LiquidController liquidController) =>
       [

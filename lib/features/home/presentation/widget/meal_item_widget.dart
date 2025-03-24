@@ -1,21 +1,26 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:meal_tracker/core/utils/media_query_values.dart';
 import 'package:meal_tracker/core/utils/style_manager.dart';
+import 'package:meal_tracker/features/home/data/models/meal_model.dart';
+import 'package:meal_tracker/features/home/logic/home/home_cubit.dart';
 
 class MealItemWidget extends StatelessWidget {
   const MealItemWidget({
     super.key,
+    required this.item,
   });
-
+  final MealModel item;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        log('Item Tapped');
+        log('Item Tapped ${item.id}');
       },
       child: Container(
         // padding: EdgeInsets.all(10.sp),
@@ -32,7 +37,7 @@ class MealItemWidget extends StatelessWidget {
               SlidableAction(
                 backgroundColor: context.redColor,
                 onPressed: (context) {
-                  log('Delete Item');
+                  context.read<HomeCubit>().removeMeal(item.id!);
                 },
                 borderRadius: BorderRadius.circular(12.r),
                 spacing: 12.w,
@@ -55,8 +60,8 @@ class MealItemWidget extends StatelessWidget {
                     color: context.greyColor.withValues(alpha: .2),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
-                  child: Image.asset(
-                    'assets/images/example.png',
+                  child: Image.file(
+                    File(item.imageUrl),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -66,21 +71,21 @@ class MealItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Name',
+                        item.name,
                         style: getBoldStyle(
                           fontSize: 14.sp,
                           color: context.defaultTextColor,
                         ),
                       ),
                       Text(
-                        '500 Calories',
+                        '${item.calories} Calories',
                         style: getRegularStyle(
                           fontSize: 12,
                           color: context.defaultTextColor,
                         ),
                       ),
                       Text(
-                        'Tuesday, 03 March 2025',
+                        item.time,
                         style: getRegularStyle(
                           fontSize: 12,
                           color: context.defaultTextColor,

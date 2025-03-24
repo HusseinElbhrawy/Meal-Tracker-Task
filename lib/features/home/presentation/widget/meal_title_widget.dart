@@ -10,11 +10,14 @@ class MealTitleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Your Meals',
-      style: getBoldStyle(
-        color: context.defaultTextColor,
-        fontSize: 16.sp,
+    return Padding(
+      padding: EdgeInsets.only(top: 12.h),
+      child: Text(
+        'Your Meals',
+        style: getBoldStyle(
+          color: context.defaultTextColor,
+          fontSize: 16.sp,
+        ),
       ),
     );
   }
