@@ -44,6 +44,8 @@ dependencies:
   flutter_animate: ^4.5.2
   animated_text_kit: ^4.2.3
   flutter_native_splash: ^2.4.4
+  get_it: ^8.0.3
+  flutter_slidable: ^4.0.0
 
 dev_dependencies:
   flutter_test:

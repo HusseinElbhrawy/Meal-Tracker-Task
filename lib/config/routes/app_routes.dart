@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:meal_tracker/features/home/presentation/screens/home_screen.dart';
 
 import '../../core/utils/app_strings.dart';
 import '../../features/onboarding/presentation/screens/on_boarding_screen.dart';
@@ -22,6 +23,11 @@ class AppRoutes {
       case Routes.onboardingRoute:
         return CupertinoPageRoute(
           builder: (_) => const OnBoardingScreen(),
+          settings: routeSettings,
+        );
+      case Routes.homeRoute:
+        return CupertinoPageRoute(
+          builder: (_) => const HomeScreen(),
           settings: routeSettings,
         );
 
