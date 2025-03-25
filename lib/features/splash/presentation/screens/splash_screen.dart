@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:meal_tracker/app/injector.dart';
 import 'package:meal_tracker/core/utils/media_query_values.dart';
+import 'package:meal_tracker/features/onboarding/logic/on_barding_service.dart';
 
 import '../../../../config/routes/app_routes.dart';
 import '../widget/app_logo_widget.dart';
@@ -24,16 +26,16 @@ class _SplashScreenState extends State<SplashScreen> {
     _timer = Timer(
       const Duration(seconds: 2),
       () {
-        // final isSkipped = serviceLocator<OnBardingService>().isOnBoardingSeen();
-        // if (isSkipped) {
-        //   context.navigateToWithReplacementAndClearStack(
-        //     Routes.homeRoute,
-        //   );
-        // } else {
+        final isSkipped = serviceLocator<OnBardingService>().isOnBoardingSeen();
+        if (isSkipped) {
+          context.navigateToWithReplacementAndClearStack(
+            Routes.homeRoute,
+          );
+        } else {
           context.navigateToWithReplacementAndClearStack(
             Routes.onboardingRoute,
           );
-        // }
+        }
       },
     );
   }

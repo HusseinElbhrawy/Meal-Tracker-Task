@@ -3,6 +3,9 @@ import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:meal_tracker/core/utils/app_assets.dart';
 import 'package:meal_tracker/core/utils/media_query_values.dart';
 import 'package:meal_tracker/features/onboarding/data/models/on_boarding_model.dart';
+import 'package:meal_tracker/features/onboarding/logic/on_barding_service.dart';
+
+import '../../app/injector.dart';
 
 class AppConstant {
   const AppConstant._();
@@ -10,6 +13,9 @@ class AppConstant {
   factory AppConstant() => _instance;
 
   static const int defaultPaddingValue = 16;
+
+  static const mealBox = 'meal_box';
+  static const mealDatabase = 'meal_db';
 
   static List<OnBoardingModel> onBoardingItems(
           BuildContext context, LiquidController liquidController) =>
@@ -53,7 +59,7 @@ class AppConstant {
           buttonTextColor: context.blackColor,
           buttonText: 'Get Started',
           onPress: () async {
-            // await serviceLocator<OnBoardingService>().navigateToHome(context);
+            await serviceLocator<OnBardingService>().navigateToHome(context);
           },
         ),
       ];
