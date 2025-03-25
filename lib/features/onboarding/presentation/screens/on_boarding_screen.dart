@@ -44,7 +44,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         enableSideReveal: true,
         onPageChangeCallback: (activePageIndex) =>
             _updateIndex(activePageIndex),
-        slideIconWidget: const Icon(Icons.navigate_before_sharp),
+        slideIconWidget: currentIndex ==
+                AppConstant.onBoardingItems(context, liquidController).length -
+                    1
+            ? const SizedBox.shrink()
+            : const Icon(Icons.navigate_before_sharp),
         pages: AppConstant.onBoardingItems(context, liquidController)
             .map((item) =>
                 OnBoardingItemWidget(item: item, currentIndex: currentIndex))

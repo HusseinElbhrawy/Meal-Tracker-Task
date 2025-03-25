@@ -53,6 +53,12 @@ class EditMealCubit extends Cubit<EditMealState> {
     }
   }
 
+  void updateTime(TimeOfDay time, BuildContext context) {
+    // mealTime.text = time.format(context);
+    editMealTime.text = time.format(context);
+    emit(state.copyWith(pickedTime: time));
+  }
+
   void editMeal() async {
     if (formKey.currentState!.validate()) {
       emit(state.copyWith(editMealStatus: RequestStatus.loading));

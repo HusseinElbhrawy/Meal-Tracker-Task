@@ -26,6 +26,7 @@ ThemeData get kLightTheme => ThemeData(
         centerTitle: true,
         elevation: 0.0,
         color: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         iconTheme: const IconThemeData(
           color: AppColors.black,
         ),
@@ -136,8 +137,12 @@ ThemeData get kLightTheme => ThemeData(
         suffixIconColor: AppColors.lightHintColor,
         prefixIconColor: AppColors.lightHintColor,
         contentPadding: EdgeInsets.all(AppPadding.p12.sp),
-        hintStyle: const TextStyle(color: AppColors.lightHintColor),
+        hintStyle: const TextStyle(color: AppColors.darkLightText),
         labelStyle: TextStyle(
+          color: AppColors.darkLightText,
+          fontSize: AppSize.s14.sp,
+        ),
+        helperStyle: TextStyle(
           color: AppColors.darkLightText,
           fontSize: AppSize.s14.sp,
         ),
@@ -172,6 +177,15 @@ ThemeData get kLightTheme => ThemeData(
         focusedErrorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.primaryColor,
+            width: AppSize.s1_5.r,
+          ),
+          borderRadius: BorderRadius.circular(
+            AppSize.s14.r,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: AppColors.lightHintColor,
             width: AppSize.s1_5.r,
           ),
           borderRadius: BorderRadius.circular(

@@ -77,10 +77,13 @@ class CustomTextFormFieldWithTitle extends StatelessWidget {
             onFieldSubmitted: onFieldSubmitted,
             obscureText: obscureText,
             textInputAction: textInputAction,
+            style: getMediumStyle(
+              color: context.defaultTextColor,
+            ),
             validator: validator,
             maxLines: maxLines ?? 1,
             onTapOutside: (event) {
-              FocusScope.of(context).unfocus();
+              // FocusScope.of(context).unfocus();
             },
             decoration: InputDecoration(
               // hintText: '\t$hintText',

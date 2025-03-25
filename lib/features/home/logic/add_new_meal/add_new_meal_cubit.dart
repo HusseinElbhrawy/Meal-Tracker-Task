@@ -68,6 +68,12 @@ class AddNewMealCubit extends Cubit<AddNewMealState> {
     }
   }
 
+  void updateTime(TimeOfDay time, BuildContext context) {
+    // mealTime.text = time.format(context);
+    mealTime.text = time.format(context);
+    emit(state.copyWith(pickedTime: time));
+  }
+
   @override
   Future<void> close() {
     mealName.dispose();

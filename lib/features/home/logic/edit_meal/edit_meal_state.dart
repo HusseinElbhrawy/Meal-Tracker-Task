@@ -6,6 +6,7 @@ class EditMealState extends Equatable {
     this.editMealErrorMessage,
     this.pickedImage,
     this.item,
+    this.pickedTime,
   });
 
   ///* Edit  Meal
@@ -13,6 +14,7 @@ class EditMealState extends Equatable {
   final String? editMealErrorMessage;
   final File? pickedImage;
   final MealModel? item;
+  final TimeOfDay? pickedTime;
 
   @override
   List<Object?> get props => [
@@ -20,6 +22,7 @@ class EditMealState extends Equatable {
         editMealErrorMessage,
         pickedImage,
         item,
+        pickedTime,
       ];
 
   EditMealState copyWith({
@@ -27,12 +30,14 @@ class EditMealState extends Equatable {
     String? editMealErrorMessage,
     File? pickedImage,
     MealModel? item,
+    TimeOfDay? pickedTime,
   }) {
     return EditMealState(
       editMealStatus: editMealStatus ?? this.editMealStatus,
       editMealErrorMessage: editMealErrorMessage ?? this.editMealErrorMessage,
       pickedImage: pickedImage ?? this.pickedImage,
       item: item ?? this.item,
+      pickedTime: pickedTime ?? this.pickedTime,
     );
   }
 }
