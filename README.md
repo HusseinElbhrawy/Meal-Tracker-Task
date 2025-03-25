@@ -42,7 +42,7 @@ Track the development progress with WakaTime:
 
 | #1                          | #2                          | #3                          | #4                          | #5                          | #6                          | #7                          |
 |-----------------------------|-----------------------------|-----------------------------|-----------------------------|-----------------------------|-----------------------------|-----------------------------|
-| ![1.png](screenshots/1.png) | ![2.png](screenshots/2.png) | ![3.png](screenshots/3.png) | ![4.png](screenshots/4.png) | ![5.png](screenshots/5.png) | ![6.png](screenshots/6.png) | ![7.png](screenshots/7.png) |
+| ![1.png](/Screenshots/1.png) | ![2.png](Screenshots/2.png) | ![3.png](Screenshots/3.png) | ![4.png](Screenshots/4.png) | ![5.png](Screenshots/5.png) | ![6.png](Screenshots/6.png) | ![7.png](Screenshots/7.png) |
 |                             |                             |                             |                             |                             |                             |                             |
 
 
@@ -50,7 +50,13 @@ Track the development progress with WakaTime:
 
 ## 📺 App Video
 
-[final_video.mp4](screenshots/final.mp4)
+[final_video.mp4](Screenshots/final.mp4)
+
+
+https://github.com/user-attachments/assets/e4dc2e0e-cc0d-4183-a99d-e6c98250a516
+
+
+
 
 ---
 
@@ -91,7 +97,7 @@ Track the development progress with WakaTime:
 
 [![Download](https://img.shields.io/badge/GitHub-100000?logo=github&logoColor=white)]()
 
-- [MediaFire]()
+- [MediaFire](https://www.mediafire.com/file/8dznh2zlxg6399c/app-release.apk/file)
 
 
 
