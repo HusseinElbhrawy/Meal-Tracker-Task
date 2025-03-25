@@ -1,0 +1,65 @@
+name: Flutter CI/CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build APK
+    runs-on: macos-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.27.2'
+          cache: true
+          cache-key: flutter
+          cache-path: ${{ github.workspace }}/flutter
+          channel: 'stable'
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK to Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Get Version Name and Code
+        id: version
+        run: |
+          VERSION_NAME=$(grep 'version:' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)
+          VERSION_CODE=$(grep 'version:' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 2)
+          echo "version_name=$VERSION_NAME" >> $GITHUB_ENV
+          echo "version_code=$VERSION_CODE" >> $GITHUB_ENV
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ env.version_name }}+${{ env.version_code }}
+          name: Release v${{ env.version_name }}+${{ env.version_code }}
+          draft: false
+          prerelease: false
+          files: build/app/outputs/flutter-apk/app-release.apk
+      
+      
+  
